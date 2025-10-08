@@ -1,54 +1,534 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
 
-body{
-  background-color: #FFFFFF;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-family: "Lexend Deca", sans-serif;
+	font-optical-sizing: auto;
+	font-style: normal;
 }
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-  font-family: "Lexend Deca", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
+ :root {
+      --main-color: #111;
+      --accent: #ff6600;
+      --text-light: #fff;
+      --overlay: rgba(0, 0, 0, 0.4);
+      --transition: 0.4s ease;
+    }
+
+li {
+	list-style: none;
 }
-/* hero style */
-.hero{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 140px;
-  
-  text-align: center;
-  width: 80%;
-  margin: auto;
-  margin-top: 120px;
+
+a {
+	text-decoration: none;
+	color: white;
+	text-transform: capitalize;
+	font-size: 14px;
+	font-weight: 300;
 }
-.title h1{
-  font-size: 30px;
-  color: black;
-  margin: 8px 0;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 500;
+	color: #202020;
+	text-transform: capitalize;
 }
-.title span{
-  color: #0063FF;
+
+.toolbar,
+.prices,
+.icons,
+.heart {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
-.title p{
-  color: #606060;
-  font-size: 12px;
-  margin-bottom: 60px;
+
+header,
+.container,
+#advertisements,
+#collections,
+.title_collection,
+.footer{
+	width: 90%;
+	margin: 0 auto;
 }
-.Initial img{
-  width: 250px;
-  margin-top: 90px;
-  border: 3px solid black;
-  border-radius: 50%;
+
+
+
+
+
+
+
+
+
+/* ________ navbar & toolbar __________ */
+.toolbar {
+	padding: 16px 0;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	padding: 15px;
+	transition: all .3s ease;
+	z-index: 5;
 }
-.btn{
-  padding: 8px 24px;
-  background: transparent;
-  margin: 20px 0;
-  text-decoration: none;
-  color: black;
-  border: 1.5px solid #000000;
+
+.toolbar>a {
+	font-size: 28px;
+	font-weight: 700;
+}
+
+nav {
+	position: fixed;
+	top: 56px;
+	left: -100%;
+	right: 100%;
+	bottom: 0;
+	background: #95959533;
+	display: flex;
+	backdrop-filter: blur(5px);
+	margin: 8px;
+	border-radius: 8px;
+}
+
+nav ul {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+	height: 100%;
+	padding-top: 72px;
+	margin-left: 32px;
+}
+
+nav ul li a {
+	padding: 10px 10px;
+	color: white;
+	transition: .3s;
+}
+
+nav ul a:nth-child(5) {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 8px 24px;
+	border: 1px solid white;
+	gap: 12px;
+	border-radius: 8px;
+	position: absolute;
+	bottom: 32px;
+}
+
+nav ul a:nth-child(5) span {
+	color: white;
+	font-weight: 500;
+}
+
+.icons span,
+.icons h6 {
+	display: none;
+}
+
+.icons {
+	gap: 16px
+}
+
+
+
+
+
+
+
+
+
+/* ________ hero __________ */
+#hero {
+	background-image: url(/public/img/background.jpg);
+	background-size: cover;
+	background-position: center;
+	width: 100%;
+	height: 60vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+}
+
+#hero:after {
+	content: "";
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background: #3B3B3BB8;
+	z-index: -2;
+}
+
+#hero>div {
+	margin-top: 40px;
+}
+
+#hero>div>h1 {
+	color: white;
+	margin-bottom: 16px;
+}
+
+#hero>div>p {
+	color: #E5E5E5;
+	margin-bottom: 40px;
+}
+
+.button {
+	background: white;
+	padding: 10px 16px;
+	border-radius: 50px;
+	font-size: 14px;
+	color: black;
+	font-weight: 500;
+	display: inline;
+}
+
+.button:hover {
+	background: black !important;
+	color: #FFFFFF;
+}
+
+
+
+
+
+
+
+
+/* ________ product _________ */
+#products {
+	margin: 50px 0;
+}
+
+.product {
+	transition: all .1s ease;
+	border-radius: 10px;
+	border: 1px solid transparent;
+}
+
+.product:hover {
+	transform: scale(1.05);
+	border: 1px solid black;
+	
+}
+
+.All_product {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(auto, 150px));
+	gap: 20px;
+}
+
+.title h2 {
+	font-size: 40px;
+}
+
+.title p {
+	margin: 10px 0;
+}
+
+.box {
+	background: #F1F1F1;
+	border-radius: 10px;
+	padding: 8px;
+}
+
+.box img {
+	width: 100%;
+}
+
+.prices {
+	padding: 0 8px;
+}
+
+.heart span {
+	background: #ABABAB;
+	color: white;
+	border-radius: 8px;
+	padding: 3px 7px;
+	font-size: 14px;
+	
+}
+
+.heart span:empty {
+	background: transparent;
+	color: transparent;
+	border-radius: none;
+	padding: none;
+}
+
+.price {
+	margin-top: 10px;
+}
+
+
+
+
+
+
+
+/* ________ advertisement ________*/
+
+#advertisements {
+	text-align: center;
+}
+
+.advertisement {
+	display: flex;
+	margin-top: 100px;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: column;
+}
+
+.advertisement img {
+	margin-bottom: 16px;
+	border-radius: 8px;
+	width: 100%;
+}
+
+.adver {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.title_ad {
+	text-align: left;
+}
+
+.title_ad h3 {
+	font-size: 30px;
+	line-height: 30px;
+	width: 95%;
+}
+
+.title_ad p {
+	margin: 10px 0 0 0;
+}
+
+.title_ad h5 {
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.title_ad h2 {
+	font-size: 65px;
+	margin: 20px 0;
+}
+
+.title_ad a {
+	margin: 32px 0;
+}
+
+
+
+
+
+/* ______ collection ________*/
+#collections {
+	width: 100%;
+	padding: 80px 5%;
+	max-width: 1200px;
+	margin: auto;
+}
+
+
+.title_collection {
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.title_collection h2 {
+	font-size: 2.2rem;
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+
+.title_collection p {
+	color: #555;
+	font-size: 1rem;
+}
+
+#collection {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 20px;
+}
+
+.collection-card {
+	position: relative;
+	overflow: hidden;
+	border-radius: 14px;
+	background: #000;
+	height: 360px;
+	cursor: pointer;
+	transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.collection-card:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.collection-card img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform var(--transition);
+}
+
+.collection-card:hover img {
+	transform: scale(1.05);
+}
+.collection-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--overlay);
+	color: var(--text-light);
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	padding: 25px;
+	transition: background var(--transition);
+}
+
+.collection-card:hover .collection-overlay {
+	background: rgba(0, 0, 0, 0.55);
+}
+
+.collection-overlay h3 {
+	font-size: 1.5rem;
+	margin-bottom: 8px;
+}
+
+.collection-overlay p {
+	font-size: 0.95rem;
+	opacity: 0.9;
+	margin-bottom: 15px;
+}
+
+.collection-overlay a, .button {
+	align-self: start;
+	background: var(--accent);
+	color: white;
+	text-decoration: none;
+	padding: 10px 18px;
+	border-radius: 6px;
+	font-weight: 500;
+	transition: background var(--transition);
+}
+
+.collection-overlay a:hover {
+	background: #e04e00;
+}
+
+
+
+
+
+
+
+
+
+
+/* ======	conent email	========= */
+#email {
+	background-image: url(/public/img/background.jpg);
+	background-position: center;
+	background-size: cover;
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+	padding: 24px 0;
+	width: 100%;
+}
+#email:after {
+	content: "";
+	width: 100%;
+	height: 100%;
+	background: #0000008A;
+	position: absolute;
+	z-index: -2;
+	top: 0;
+	left: 0;
+}
+#email div:nth-child(2) {
+	display: flex;
+}
+#email div input {
+	padding: 10px 8px;
+	border: 1px solid white;
+	border-radius: 8px;
+	background: #FFFFFF38;
+	color: white;
+	outline: none;
+	width: 70%;
+}
+#email .container div{
+	display: flex;
+	gap: 12px;
+	width: 100%;
+	margin: 16px 0;
+}
+#email .container div a{
+	width: 30%;
+}
+
+#email div input::placeholder {
+	color: white;
+}
+
+#email .container h2{
+	color: white;
+}
+#email .container p{
+	color: #EDEDED;
+}
+
+
+
+
+
+
+
+
+/* ===== footer===== */
+footer {
+	background: #202020;
+	color: white;
+}
+
+footer a {
+	color: white;
+	text-decoration: none;
+}
+.icon_cousual + a{
+	color: #EDEDED;
+	margin-top: 24px;
+	text-decoration: underline;
+}
+.footer {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+	padding: 30px 0;
+}
+.icon_cousual{
+	margin-top: 16px;
+}
+.icon_cousual {
+	display: flex;
 }

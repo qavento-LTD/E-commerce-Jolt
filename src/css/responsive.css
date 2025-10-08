@@ -1,0 +1,9 @@
+@media (max-width: 768px) and (max-width: 1024px) {
+	.collection-overlay {
+		padding: 15px;
+	}
+	
+	.collection-overlay h3 {
+		font-size: 1.2rem;
+	}
+}
